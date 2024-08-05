@@ -10,7 +10,22 @@ services:
       - ${WSRS_DATABASE_PORT:-5432}:5432
     volumes:
       - db:/var/lib/postgresql/data
+  
+  pgadmin:
+    image: dpage/pgadmin4:latest
+    restart: unless-stopped
+    depends_on:
+      - db
+    ports:
+      - ${WSRS_PGADMIN_PORT:-8081}:80
+    environment:
+      PGADMIN_DEFAULT_EMAIL: ${WSRS_PGADMIN_EMAIL}
+      PGADMIN_DEFAULT_PASSWORD: ${WSRS_PGADMIN_PASSWORD}
+    volumes:
+      - pgadmin:/var/lib/pgadmin
     
 volumes:
   db:
+    driver: local
+  pgadmin:
     driver: local
