@@ -3,9 +3,9 @@ services:
     image: postgres:latest
     restart: unless-stopped
     environment:
-      POSTGRES_DB: ${WSRS_DATABA_SE_DB}
-      POSTGRES_USER: ${WSRS_DATABA_SE_USER}
-      POSTGRES_PASSWORD: ${WSRS_DATABA_SE_PASSWORD}
+      POSTGRES_DB: ${WSRS_DATABASE_DB}
+      POSTGRES_USER: ${WSRS_DATABASE_USER}
+      POSTGRES_PASSWORD: ${WSRS_DATABASE_PASSWORD}
     ports:
       - ${WSRS_DATABASE_PORT:-5432}:5432
     volumes:
