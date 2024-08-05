@@ -1,0 +1,16 @@
+services:
+  db:
+    image: postgres:latest
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: ${WSRS_DATABA_SE_DB}
+      POSTGRES_USER: ${WSRS_DATABA_SE_USER}
+      POSTGRES_PASSWORD: ${WSRS_DATABA_SE_PASSWORD}
+    ports:
+      - ${WSRS_DATABASE_PORT:-5432}:5432
+    volumes:
+      - db:/var/lib/postgresql/data
+    
+volumes:
+  db:
+    driver: local
