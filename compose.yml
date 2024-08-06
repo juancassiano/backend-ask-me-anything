@@ -19,8 +19,8 @@ services:
     ports:
       - ${WSRS_PGADMIN_PORT:-8081}:80
     environment:
-      PGADMIN_DEFAULT_EMAIL: ${WSRS_PGADMIN_EMAIL}
-      PGADMIN_DEFAULT_PASSWORD: ${WSRS_PGADMIN_PASSWORD}
+      PGADMIN_DEFAULT_EMAIL: ${WSRS_PGADMIN_EMAIL:-admin@admin.com}
+      PGADMIN_DEFAULT_PASSWORD: ${WSRS_PGADMIN_PASSWORD:-password}
     volumes:
       - pgadmin:/var/lib/pgadmin
     
